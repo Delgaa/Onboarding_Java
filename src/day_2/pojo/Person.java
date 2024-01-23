@@ -76,17 +76,17 @@ public class Person {
         this.petsNames = petsNames;
     }
     public void introduce(){
-        System.out.println("\nPresentacion de " +this.firstName + ":");
-        System.out.println("¡Hola! Mi nombre es " + this.firstName +" "+ this.lastName + ".");
-        System.out.println("Tengo "+this.age+" años y mido " + this.height + " metros de altura.");
-        if (this.isMarried){
+        System.out.println("\nPresentacion de " + this.getFirstName() + ":");
+        System.out.println("¡Hola! Mi nombre es " + this.getFirstName() +" "+ this.getLastName() + ".");
+        System.out.println("Tengo "+this.getAge()+" años y mido " + this.getHeight() + " metros de altura.");
+        if (this.isMarried()){
             System.out.println("Estoy casado/a.");
         }else {
             System.out.println("No estoy casado/a.");
         }
-        System.out.println("Mi DNI es " + this.identityCard +".");
+        System.out.println("Mi DNI es " + this.getIdentityCard() +".");
         System.out.println("Mis mascotas se llaman: ");
-        for (String pet: this.petsNames) {
+        for (String pet: this.getPetsNames()) {
             System.out.println("- " + pet);
         }
     }

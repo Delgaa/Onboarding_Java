@@ -4,7 +4,7 @@ import day_2.pojo.Person;
 public class Main {
     public static void main(String[] args) {
 
-        Person yo = new Person("Ricardo Eliseo","Delgado","41153626",25,1.80,false, new String[]{"Gea", "Hector"});
+        Person yo = new Person("Ricardo Eliseo","Delgado","41636878",28,1.80,false, new String[]{"Gea", "Hector"});
         yo.introduce();
 
         Person imaginary = new Person();
