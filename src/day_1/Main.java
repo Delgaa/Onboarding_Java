@@ -144,14 +144,17 @@ public class Main {
         System.out.println("0- To go out");
     }
     public static void calculator(Scanner leer){
+        short a = 0, b = 0;
         byte option;
         printMenu();
         option = leer.nextByte();
         while (option != 0){
-            System.out.println("Enter the first number:");
-            short a = leer.nextShort();
-            System.out.println("Enter the second number:");
-            short b = leer.nextShort();
+            if (option < 4 && option > 0){
+                System.out.println("Enter the first number:");
+                a = leer.nextShort();
+                System.out.println("Enter the second number:");
+                b = leer.nextShort();
+            }
             switch (option) {
                 case 1:
                     System.out.println("The result of the addition is: " + (a + b));
