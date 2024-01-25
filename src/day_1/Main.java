@@ -117,7 +117,7 @@ public class Main {
     }
     public static void sumEvensPrimes (int[] numbers, Scanner leer){
         int sumPrimes = 0;
-        boolean isPrime = true;
+        boolean isPrime;
         for (int i = 0 ; i < numbers.length; i++){
             System.out.println("Enter number: ");
             numbers[i] = leer.nextInt();
