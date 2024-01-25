@@ -1,4 +1,5 @@
 package day_1;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -21,6 +22,7 @@ public class Main {
         messageWelcome(name);
 
         // Point 3
+        System.out.println("Enter three numbers to see the largest");
         System.out.println("Enter first number");
         short number1 = leer.nextShort();
         System.out.println("Enter second number");
@@ -36,6 +38,7 @@ public class Main {
         numberParity(number);
 
         // Point 5
+        System.out.println("Enter two strings to compare them:");
         System.out.println("Enter first string");
         String phrase1 = leer.next();
         System.out.println("Enter second string");
@@ -103,11 +106,11 @@ public class Main {
     }
     public static int sumNumbersOdd(int[] numbers, Scanner leer){
         int sum = 0;
-        for (int num : numbers){
+        for (int i = 0 ; i < numbers.length; i++){
             System.out.println("Enter number: ");
-            num = leer.nextInt();
-            if (num % 2 != 0){
-                sum += num;
+            numbers[i] = leer.nextInt();
+            if (numbers[i] % 2 != 0){
+                sum += numbers[i];
             }
         }
         return sum;
@@ -115,24 +118,29 @@ public class Main {
     public static void sumEvensPrimes (int[] numbers, Scanner leer){
         int sumPrimes = 0;
         boolean isPrime = true;
-        for (int number: numbers){
+        for (int i = 0 ; i < numbers.length; i++){
             System.out.println("Enter number: ");
-            number = leer.nextInt();
-            for (int i = 2; i < number; i++ ) {
+            numbers[i] = leer.nextInt();
+
+        }
+        System.out.println("The array entered is" + Arrays.toString(numbers));
+        System.out.print("Is Evens: ");
+        for (int number: numbers) {
+            isPrime = true;
+            if (number % 2 == 0){
+                System.out.print( number + " ");
+            }
+            for (int i = 2; i < number; i++ ){
                 if (number % i == 0) {
                     isPrime = false;
                     i = number;
                 }
             }
-            if (number % 2 == 0){
-                System.out.println("Is even: " + number);
-            }
             if (isPrime){
                 sumPrimes += number;
             }
-
         }
-        System.out.println("The sum of the prime numbers is: " +sumPrimes);
+        System.out.println("\nThe sum of the prime numbers is: " +sumPrimes);
     }
     public static void printMenu(){
         System.out.println("--------Welcome to the calculator--------");
