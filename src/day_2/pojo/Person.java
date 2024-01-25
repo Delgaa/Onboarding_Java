@@ -8,8 +8,6 @@ public class Person {
     private boolean isMarried;
     private String[] petsNames;
 
-    public Person() {
-    }
     public Person(String firstName, String lastName, String identityCard, int age, double height, boolean isMarried, String[] petsNames) {
         this.firstName = firstName;
         this.lastName = lastName;
