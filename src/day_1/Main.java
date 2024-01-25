@@ -246,6 +246,7 @@ public class Main {
         }
         System.out.println("Enter your ID without commas or periods: ");
         String dni = leer.next();
+        System.out.println("DNI entered is: " + dni);
         System.out.println("Do you have the pass ('Vip' or 'Discount' or 'none')?");
         String ticket = leer.next();
         if (ticket.equalsIgnoreCase("vip")){
