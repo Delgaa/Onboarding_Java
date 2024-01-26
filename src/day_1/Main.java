@@ -7,7 +7,7 @@ public class Main {
 
         Scanner leer =new Scanner(System.in);
         // Point 1
-        /*System.out.println("Enter your name:");
+        System.out.println("Enter your name:");
         String name = leer.next();
 
         System.out.println("Enter your lastname:");
@@ -58,7 +58,7 @@ public class Main {
         System.out.println("How many numbers will you enter for the addition of odd numbers?");
         byte index = leer.nextByte();
         int[] numbersForOdd = new int[index];
-        System.out.println("The sum of the odd numbers is: " + sumNumbersOdd(numbersForOdd, leer));*/
+        System.out.println("The sum of the odd numbers is: " + sumNumbersOdd(numbersForOdd, leer));
 
         // Point 8
         System.out.println("How many numbers are you going to enter to show the pairs and to do the sum of prime numbers?");
