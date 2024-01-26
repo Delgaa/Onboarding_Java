@@ -115,6 +115,15 @@ public class Main {
         }
         return sum;
     }
+    public static boolean isPrimes(boolean prime, int numberArray){
+        for (int i = 2; i < numberArray; i++ ){
+            if (numberArray % i == 0) {
+                prime = false;
+                i = numberArray;
+            }
+        }
+        return prime;
+    }
     public static void sumEvensPrimes (int[] numbers, Scanner leer){
         int sumPrimes = 0;
         boolean isPrime;
@@ -130,12 +139,8 @@ public class Main {
             if (number % 2 == 0){
                 System.out.print( number + " ");
             }
-            for (int i = 2; i < number; i++ ){
-                if (number % i == 0) {
-                    isPrime = false;
-                    i = number;
-                }
-            }
+            isPrime = isPrimes(isPrime, number);
+
             if (isPrime){
                 sumPrimes += number;
             }
