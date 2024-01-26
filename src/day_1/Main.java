@@ -7,7 +7,7 @@ public class Main {
 
         Scanner leer =new Scanner(System.in);
         // Point 1
-        System.out.println("Enter your name:");
+        /*System.out.println("Enter your name:");
         String name = leer.next();
 
         System.out.println("Enter your lastname:");
@@ -58,7 +58,7 @@ public class Main {
         System.out.println("How many numbers will you enter for the addition of odd numbers?");
         byte index = leer.nextByte();
         int[] numbersForOdd = new int[index];
-        System.out.println("The sum of the odd numbers is: " + sumNumbersOdd(numbersForOdd, leer));
+        System.out.println("The sum of the odd numbers is: " + sumNumbersOdd(numbersForOdd, leer));*/
 
         // Point 8
         System.out.println("How many numbers are you going to enter to show the pairs and to do the sum of prime numbers?");
@@ -212,6 +212,10 @@ public class Main {
             switch (option){
                 case 1:
                     price =  data(leer);
+                    if (price == 1){
+                        countPerson++ ;
+                        break;
+                    }
                     if (price != 0){
                         countPerson++ ;
                         moneyRaised += price;
@@ -249,18 +253,28 @@ public class Main {
             System.out.println("You are under 21. Access not permitted!");
             return 0;
         }
-        System.out.println("Enter your ID without commas or periods: ");
+        System.out.println("Enter your DNI without commas or periods: ");
         String dni = leer.next();
         System.out.println("DNI entered is: " + dni);
         System.out.println("Do you have the pass ('Vip' or 'Discount' or 'none')?");
         String ticket = leer.next();
+        while (!ticket.equalsIgnoreCase("vip")&& !ticket.equalsIgnoreCase("none")&& !ticket.equalsIgnoreCase("discount")){
+            System.out.println("Option incorrect, please try again!");
+            System.out.println("Do you have the pass ('Vip' or 'Discount' or 'none')?");
+            ticket = leer.next();
+        }
         if (ticket.equalsIgnoreCase("vip")){
             System.out.println("You can come in. Enjoy your game");
-            return vip;
+            return 1;
         }
         if (ticket.equalsIgnoreCase("Discount")){
             System.out.println("Do you want to buy the 'Vip' or 'normal' ticket (with 50% discount)? or 'n' otherwise");
             ticket = leer.next();
+            while (!ticket.equalsIgnoreCase("vip")&& !ticket.equalsIgnoreCase("n")&& !ticket.equalsIgnoreCase("normal")){
+                System.out.println("Option incorrect, please try again!");
+                System.out.println("Do you want to buy the 'Vip' or 'normal' ticket (with 50% discount)? or 'n' otherwise");
+                ticket = leer.next();
+            }
             if (ticket.equalsIgnoreCase("vip")) {
                 System.out.println("Purchase made successfully. Enjoy your game");
                 return (short) (vip / 2);
@@ -277,6 +291,11 @@ public class Main {
         if (ticket.equalsIgnoreCase("none")){
             System.out.println("Do you want to buy the 'Vip' or 'normal' ticket? or 'n' otherwise");
             ticket = leer.next();
+            while (!ticket.equalsIgnoreCase("vip")&& !ticket.equalsIgnoreCase("n")&& !ticket.equalsIgnoreCase("normal")){
+                System.out.println("Option incorrect, please try again!");
+                System.out.println("Do you want to buy the 'Vip' or 'normal' ticket? or 'n' otherwise");
+                ticket = leer.next();
+            }
             if (ticket.equalsIgnoreCase("vip")) {
                 System.out.println("Purchase made successfully. Enjoy your game");
                 return vip;
