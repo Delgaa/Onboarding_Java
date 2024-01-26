@@ -7,10 +7,11 @@ public class Pet {
     private int age;
     private Person owner;
 
-    public Pet(String name, PetType type, int age) {
+    public Pet(String name, PetType type, int age, Person owner) {
         this.name = name;
         this.type = type;
         this.age = age;
+        this.owner = owner;
     }
 
     public String getName(Person person) {
