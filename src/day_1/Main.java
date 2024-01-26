@@ -1,4 +1,5 @@
 package day_1;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -21,6 +22,7 @@ public class Main {
         messageWelcome(name);
 
         // Point 3
+        System.out.println("Enter three numbers to see the largest");
         System.out.println("Enter first number");
         short number1 = leer.nextShort();
         System.out.println("Enter second number");
@@ -36,6 +38,7 @@ public class Main {
         numberParity(number);
 
         // Point 5
+        System.out.println("Enter two strings to compare them:");
         System.out.println("Enter first string");
         String phrase1 = leer.next();
         System.out.println("Enter second string");
@@ -103,36 +106,46 @@ public class Main {
     }
     public static int sumNumbersOdd(int[] numbers, Scanner leer){
         int sum = 0;
-        for (int num : numbers){
+        for (int i = 0 ; i < numbers.length; i++){
             System.out.println("Enter number: ");
-            num = leer.nextInt();
-            if (num % 2 != 0){
-                sum += num;
+            numbers[i] = leer.nextInt();
+            if (numbers[i] % 2 != 0){
+                sum += numbers[i];
             }
         }
         return sum;
     }
+    public static boolean isPrimes(boolean prime, int numberArray){
+        for (int i = 2; i < numberArray; i++ ){
+            if (numberArray % i == 0) {
+                prime = false;
+                i = numberArray;
+            }
+        }
+        return prime;
+    }
     public static void sumEvensPrimes (int[] numbers, Scanner leer){
         int sumPrimes = 0;
-        boolean isPrime = true;
-        for (int number: numbers){
+        boolean isPrime;
+        for (int i = 0 ; i < numbers.length; i++){
             System.out.println("Enter number: ");
-            number = leer.nextInt();
-            for (int i = 2; i < number; i++ ) {
-                if (number % i == 0) {
-                    isPrime = false;
-                    i = number;
-                }
-            }
+            numbers[i] = leer.nextInt();
+
+        }
+        System.out.println("The array entered is" + Arrays.toString(numbers));
+        System.out.print("Is Evens: ");
+        for (int number: numbers) {
+            isPrime = true;
             if (number % 2 == 0){
-                System.out.println("Is even: " + number);
+                System.out.print( number + " ");
             }
+            isPrime = isPrimes(isPrime, number);
+
             if (isPrime){
                 sumPrimes += number;
             }
-
         }
-        System.out.println("The sum of the prime numbers is: " +sumPrimes);
+        System.out.println("\nThe sum of the prime numbers is: " +sumPrimes);
     }
     public static void printMenu(){
         System.out.println("--------Welcome to the calculator--------");
@@ -144,14 +157,17 @@ public class Main {
         System.out.println("0- To go out");
     }
     public static void calculator(Scanner leer){
+        short a = 0, b = 0;
         byte option;
         printMenu();
         option = leer.nextByte();
         while (option != 0){
-            System.out.println("Enter the first number:");
-            short a = leer.nextShort();
-            System.out.println("Enter the second number:");
-            short b = leer.nextShort();
+            if (option < 4 && option > 0){
+                System.out.println("Enter the first number:");
+                a = leer.nextShort();
+                System.out.println("Enter the second number:");
+                b = leer.nextShort();
+            }
             switch (option) {
                 case 1:
                     System.out.println("The result of the addition is: " + (a + b));
@@ -196,6 +212,10 @@ public class Main {
             switch (option){
                 case 1:
                     price =  data(leer);
+                    if (price == 1){
+                        countPerson++ ;
+                        break;
+                    }
                     if (price != 0){
                         countPerson++ ;
                         moneyRaised += price;
@@ -233,17 +253,28 @@ public class Main {
             System.out.println("You are under 21. Access not permitted!");
             return 0;
         }
-        System.out.println("Enter your ID without commas or periods: ");
+        System.out.println("Enter your DNI without commas or periods: ");
         String dni = leer.next();
+        System.out.println("DNI entered is: " + dni);
         System.out.println("Do you have the pass ('Vip' or 'Discount' or 'none')?");
         String ticket = leer.next();
+        while (!ticket.equalsIgnoreCase("vip")&& !ticket.equalsIgnoreCase("none")&& !ticket.equalsIgnoreCase("discount")){
+            System.out.println("Option incorrect, please try again!");
+            System.out.println("Do you have the pass ('Vip' or 'Discount' or 'none')?");
+            ticket = leer.next();
+        }
         if (ticket.equalsIgnoreCase("vip")){
             System.out.println("You can come in. Enjoy your game");
-            return vip;
+            return 1;
         }
         if (ticket.equalsIgnoreCase("Discount")){
             System.out.println("Do you want to buy the 'Vip' or 'normal' ticket (with 50% discount)? or 'n' otherwise");
             ticket = leer.next();
+            while (!ticket.equalsIgnoreCase("vip")&& !ticket.equalsIgnoreCase("n")&& !ticket.equalsIgnoreCase("normal")){
+                System.out.println("Option incorrect, please try again!");
+                System.out.println("Do you want to buy the 'Vip' or 'normal' ticket (with 50% discount)? or 'n' otherwise");
+                ticket = leer.next();
+            }
             if (ticket.equalsIgnoreCase("vip")) {
                 System.out.println("Purchase made successfully. Enjoy your game");
                 return (short) (vip / 2);
@@ -260,6 +291,11 @@ public class Main {
         if (ticket.equalsIgnoreCase("none")){
             System.out.println("Do you want to buy the 'Vip' or 'normal' ticket? or 'n' otherwise");
             ticket = leer.next();
+            while (!ticket.equalsIgnoreCase("vip")&& !ticket.equalsIgnoreCase("n")&& !ticket.equalsIgnoreCase("normal")){
+                System.out.println("Option incorrect, please try again!");
+                System.out.println("Do you want to buy the 'Vip' or 'normal' ticket? or 'n' otherwise");
+                ticket = leer.next();
+            }
             if (ticket.equalsIgnoreCase("vip")) {
                 System.out.println("Purchase made successfully. Enjoy your game");
                 return vip;
