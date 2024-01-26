@@ -10,8 +10,8 @@ public class Main {
 
         Person yo = new Person("Ricardo", "Delgado", "41646345", 24, 1.80, false);
 
-        Pet mascota1 = new Pet("Gea", GATO, 4);
-        Pet mascota2 = new Pet("Hector", GATO, 3);
+        Pet mascota1 = new Pet("Gea", GATO, 4, yo);
+        Pet mascota2 = new Pet("Hector", GATO, 3, yo);
 
         yo.addPets(mascota1);
         yo.addPets(mascota2);
@@ -21,9 +21,9 @@ public class Main {
         imaginary.introduce();
 
         Person otherImaginary = new Person("Pablo", "Aguirre", "46546635", 20, 1.85, false);
-        Pet mascotaPblo = new Pet("Baronesa", PEZ, 1);
-        Pet mascotaPblo2 = new Pet("Arika", PAJARO, 1);
-        Pet mascotaPblo3 = new Pet("Bianca", PERRO, 2);
+        Pet mascotaPblo = new Pet("Baronesa", PEZ, 1, otherImaginary);
+        Pet mascotaPblo2 = new Pet("Arika", PAJARO, 1, otherImaginary);
+        Pet mascotaPblo3 = new Pet("Bianca", PERRO, 2, otherImaginary);
 
         otherImaginary.addPets(mascotaPblo);
         otherImaginary.addPets(mascotaPblo2);
