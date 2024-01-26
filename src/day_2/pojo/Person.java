@@ -8,8 +8,6 @@ public class Person {
     private boolean isMarried;
     private String[] petsNames;
 
-    public Person() {
-    }
     public Person(String firstName, String lastName, String identityCard, int age, double height, boolean isMarried, String[] petsNames) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -85,9 +83,13 @@ public class Person {
             System.out.println("No estoy casado/a.");
         }
         System.out.println("Mi DNI es " + this.getIdentityCard() +".");
-        System.out.println("Mis mascotas se llaman: ");
-        for (String pet: this.getPetsNames()) {
-            System.out.println("- " + pet);
+        if (this.getPetsNames().length != 0) {
+            System.out.println("Mis mascotas se llaman: ");
+            for (String pet : this.getPetsNames()) {
+                System.out.println("- " + pet);
+            }
+        }else {
+            System.out.println("No tiene mascotas. ");
         }
     }
 
